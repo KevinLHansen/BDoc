@@ -8,6 +8,10 @@ internal class Program
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-        await builder.Build().RunAsync();
+        builder.Services.AddBDoc();
+
+        await builder
+            .Build()
+            .RunAsync();
     }
 }

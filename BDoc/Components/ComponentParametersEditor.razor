@@ -1,0 +1,10 @@
+@namespace BDoc.Components
+
+@foreach (var parameter in _ParameterProperties)
+{
+    var parameterValue = _ParameterValues[parameter.Name];
+
+    <ValueEditor ValueType=parameter.PropertyType
+                 @bind-Value:get=parameterValue.Value
+                 @bind-Value:set=@(async newValue => await SetParameterValue(parameter.Name, newValue))/>
+}

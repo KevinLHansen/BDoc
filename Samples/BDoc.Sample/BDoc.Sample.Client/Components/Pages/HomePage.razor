@@ -1,0 +1,11 @@
+@page "/"
+@namespace BDoc.Sample.Client.Components.Pages
+@using FlexyBox.Core.Blazor.Components.Controls
+
+<PageTitle>Home</PageTitle>
+
+<DynamicComponent Type=_ComponentType
+                  Parameters=_ComponentParameters />
+
+<ComponentParametersEditor ComponentType=_ComponentType
+                           @bind-ComponentParameters=_ComponentParameters />

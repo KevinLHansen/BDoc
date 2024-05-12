@@ -1,0 +1,16 @@
+@using BDoc.Abstractions
+@using Microsoft.AspNetCore.Components.Forms
+
+@inherits RenderFragmentFactoryBase
+@implements IValueEditorProvider
+
+@code
+{
+    public RenderFragment CreateEditor(string? value, EventCallback<object?> valueChanged) => __builder =>
+    {
+        <input type="text"
+               @bind=value
+               @bind:after=@(async () => await valueChanged.InvokeAsync(value))
+               @bind:event="oninput" />
+    };
+}
